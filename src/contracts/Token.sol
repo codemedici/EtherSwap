@@ -47,10 +47,15 @@ contract Token is Context, IERC20{
 		return true;
 	}
 
-	function transferFrom(address from, address to, uint256 value) public returns (bool success){
-		require(balanceOf[from] >= value);
-		allowance[from][_msgSender()] = allowance[from][_msgSender()].sub(value);
-		_transfer(from, to, value);
+	function transferFrom(address _from, address _to, uint256 _value) public returns (bool success){
+		// this checks both that user allowance is enough and that user is allowed
+		require(_value <= allowance[_from][msg.sender]);
+		// in case I allowed myself (or someone allowed me) to spend more than they have
+		require(balanceOf[_from] >= _value);
+		// TODO check sending to and from the same msg.sender are not allowed,
+		// otherwise someone could fill their own orders on the exchange
+		allowance[_from][_msgSender()] = allowance[_from][_msgSender()].sub(_value);
+		_transfer(_from, _to, _value);
 		return true;
 	}
 
