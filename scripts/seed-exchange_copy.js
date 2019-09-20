@@ -1,6 +1,6 @@
 // Contracts
-const Token = artifacts.require('./Token')
-const Exchange = artifacts.require('./Exchange')
+const Token = artifacts.require("Token")
+const Exchange = artifacts.require("Exchange")
 
 // Utils
 const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000' // Ether token deposit address
