@@ -84,13 +84,6 @@ class MyTransactions extends Component {
 
 function mapStateToProps(state) {
 
-  console.log({
-    myFilledOrders: myFilledOrdersSelector(state),
-    showMyFilledOrders: filledOrdersLoadedSelector(state),
-    myOpenOrders: myOpenOrdersSelector(state),
-    showMyOpenOrders: orderBookLoadedSelector(state)
-  })
-
   return {
     myFilledOrders: myFilledOrdersSelector(state),
     showMyFilledOrders: filledOrdersLoadedSelector(state),

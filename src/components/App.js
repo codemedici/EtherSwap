@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import './CandleStickChart.css'
 import Navbar from './Navbar'
 import Content from './Content'
 import { connect } from 'react-redux'
@@ -10,6 +11,10 @@ import {
   loadExchange
 } from '../store/interactions'
 import { contractsLoadedSelector } from '../store/selectors'
+// imports for candlestick chart
+import * as d3 from 'd3';
+import * as d3queue from 'd3-queue';
+import * as topojson from 'topojson';
 
 class App extends Component {
   componentWillMount() {
@@ -36,6 +41,11 @@ class App extends Component {
   render() {
     return (
       <div>
+        <script src="cschart.js"></script>
+        <script src="csbars.js"></script>
+        <script src="csheader.js"></script>
+        <script src="csdataprep.js"></script>
+        <script src="csmain.js"></script>
         <Navbar />
         { this.props.contractsLoaded ? <Content /> : <div className="content"></div> }
       </div>
