@@ -63,6 +63,10 @@ contract Exchange {
 		emit Withdrawal(_token, msg.sender, _amount, tokens[_token][msg.sender]);
 	}
 
+	function balanceOf(address _token, address _user) public view returns (uint256) {
+        return tokens[_token][_user];
+    }
+
 	function submitOrder(address _tokenGet, uint256 _amountGet, address _tokenGive, uint256 _amountGive) public {
 		orderCount = orderCount.add(1);
 		orders[orderCount] = _Order(orderCount, msg.sender, _tokenGet, _amountGet, _tokenGive, _amountGive, now);
