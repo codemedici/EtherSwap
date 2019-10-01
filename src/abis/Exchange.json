@@ -18448,6 +18448,208 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
+    "42": {
+      "events": {
+        "0xdcbc1c05240f31ff3ad067ef1ee35ce4997762752e3a095284754544f4c709d7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event",
+          "signature": "0xdcbc1c05240f31ff3ad067ef1ee35ce4997762752e3a095284754544f4c709d7"
+        },
+        "0xc2b4a290c20fb28939d29f102514fbffd2b73c059ffba8b78250c94161d5fcc6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "name": "Withdrawal",
+          "type": "event",
+          "signature": "0xc2b4a290c20fb28939d29f102514fbffd2b73c059ffba8b78250c94161d5fcc6"
+        },
+        "0x9d33853d43e3607b4cc01fdc78338ff2dca6fef7db9232dae6d3eb55fbc3b109": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGet",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGive",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGive",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "Order",
+          "type": "event",
+          "signature": "0x9d33853d43e3607b4cc01fdc78338ff2dca6fef7db9232dae6d3eb55fbc3b109"
+        },
+        "0x77de1da0be5f2d3b110d05c6694e5c4ff2d9da7cd23d84353ecf78c7b5acec61": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGet",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGive",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGive",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "name": "Cancel",
+          "type": "event",
+          "signature": "0x77de1da0be5f2d3b110d05c6694e5c4ff2d9da7cd23d84353ecf78c7b5acec61"
+        },
+        "0xa1930d8bfb518dec0a0ee16384c434b1c7a1aebb36f462378ae1bf2f812ccb37": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGet",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "tokenGive",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amountGive",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "userFill",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "feeAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Trade",
+          "type": "event",
+          "signature": "0xa1930d8bfb518dec0a0ee16384c434b1c7a1aebb36f462378ae1bf2f812ccb37"
+        }
+      },
+      "links": {},
+      "address": "0x1735FA87fD305A452BC75C5410ee3b974e47Ca67",
+      "transactionHash": "0x9261da39202133c69b3699c515fe18ce04f9ad95aed3d9617d532b9a6c531d90"
+    },
     "5777": {
       "events": {
         "0xdcbc1c05240f31ff3ad067ef1ee35ce4997762752e3a095284754544f4c709d7": {
@@ -18652,7 +18854,7 @@
     }
   },
   "schemaVersion": "3.0.15",
-  "updatedAt": "2019-09-30T15:54:29.608Z",
+  "updatedAt": "2019-10-01T11:32:00.704Z",
   "devdoc": {
     "methods": {}
   },
