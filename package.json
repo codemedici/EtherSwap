@@ -5,7 +5,7 @@
   "author": "cosimo@demedici.me",
   "private": true,
   "engines": {
-    "node": "8.11.1"
+    "node": "9.10.0"
   },
   "dependencies": {
     "@openzeppelin/network": "^0.2.9",
