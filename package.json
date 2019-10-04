@@ -4,6 +4,9 @@
   "description": "Decentralized Ethereum Token Exchange",
   "author": "cosimo@demedici.me",
   "private": true,
+  "engines": {
+    "node": "8.11.1"
+  },
   "dependencies": {
     "@openzeppelin/network": "^0.2.9",
     "apexcharts": "3.6.3",
