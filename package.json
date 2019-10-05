@@ -1,11 +1,12 @@
 {
-  "name": "blockchain-developer-bootcamp",
+  "name": "EtherSwap Decentralized Exchange",
   "version": "0.1.0",
   "description": "Decentralized Ethereum Token Exchange",
   "author": "cosimo@demedici.me",
   "private": true,
   "engines": {
-    "node": "9.10.0"
+    "node": "8.11.1",
+    "npm": "5.6.0"
   },
   "dependencies": {
     "@openzeppelin/network": "^0.2.9",
