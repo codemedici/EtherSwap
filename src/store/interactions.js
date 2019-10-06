@@ -38,6 +38,8 @@ export const loadWeb3 = (dispatch) => {
         try {
             // Request account access if needed
             askPermission()
+            dispatch(web3Loaded(web3))
+            return web3
         } catch (error) {
             console.log(error)
             // User denied account access...
@@ -47,8 +49,6 @@ export const loadWeb3 = (dispatch) => {
     else {
         window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
   }
-  dispatch(web3Loaded(web3))
-  return web3
 }
 
 
