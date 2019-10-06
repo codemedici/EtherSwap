@@ -32,6 +32,7 @@ export const loadWeb3 = (dispatch) => {
 }
 
 export const loadAccount = async (web3, dispatch) => {
+  // TODO add warning message if no accounts found
   const accounts = await web3.eth.getAccounts()
   const account = accounts[0]
   dispatch(web3AccountLoaded(account))
