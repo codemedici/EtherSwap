@@ -1,0 +1,3 @@
+chardet==3.0.4
+pycairo==1.18.1
+pyenchant==2.0.0
