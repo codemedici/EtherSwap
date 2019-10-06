@@ -1,10 +1,8 @@
 pragma solidity ^0.5.0;
 
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
-import 'openzeppelin-solidity/contracts/token/ERC20/IERC20.sol';
-import 'openzeppelin-solidity/contracts/GSN/Context.sol';
 
-contract Token is Context, IERC20{
+contract Token { //is Context, IERC20{
 	using SafeMath for uint;
 
 	string public name = 'DApp Token'; // optional
@@ -25,25 +23,25 @@ contract Token is Context, IERC20{
 	}
 
 
-	function transfer(address to, uint256 value) public returns (bool success) {
-		require(balanceOf[msg.sender] >= value);
-		_transfer(_msgSender(), to, value);
+	function transfer(address _to, uint256 _value) public returns (bool success) {
+		require(balanceOf[msg.sender] >= _value);
+		_transfer(msg.sender, _to, _value);
 		return true;
 	}
 
-	function _transfer(address from, address to, uint256 value) internal {
-		require(to != address(0), "ERC20: transfer to the zero address");
-		require(from != address(0), "ERC20: transfer from the zero address");
-		balanceOf[from] = balanceOf[from].sub(value);
-		balanceOf[to] = balanceOf[to].add(value);
-		emit Transfer(from, to, value);
+	function _transfer(address _from, address _to, uint256 _value) internal {
+		require(_to != address(0), "ERC20: transfer _to the zero address");
+		require(_from != address(0), "ERC20: transfer _from the zero address");
+		balanceOf[_from] = balanceOf[_from].sub(_value);
+		balanceOf[_to] = balanceOf[_to].add(_value);
+		emit Transfer(_from, _to, _value);
 	}
 
-	function approve(address spender, uint256 value) public returns (bool success) {
-		require(spender != address(0));
+	function approve(address _spender, uint256 _value) public returns (bool success) {
+		require(_spender != address(0));
 		// TODO require that msg.sender can't approve funds they don't have
-		allowance[msg.sender][spender] = value; // if called again overwrites allowance
-		emit Approval(msg.sender, spender, value);
+		allowance[msg.sender][_spender] = _value; // if called again overwrites allowance
+		emit Approval(msg.sender, _spender, _value);
 		return true;
 	}
 
@@ -54,7 +52,7 @@ contract Token is Context, IERC20{
 		require(balanceOf[_from] >= _value);
 		// TODO check sending to and from the same msg.sender are not allowed,
 		// otherwise someone could fill their own orders on the exchange
-		allowance[_from][_msgSender()] = allowance[_from][_msgSender()].sub(_value);
+		allowance[_from][msg.sender] = allowance[_from][msg.sender].sub(_value);
 		_transfer(_from, _to, _value);
 		return true;
 	}

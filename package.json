@@ -1,5 +1,5 @@
 {
-  "name": "EtherSwap Decentralized Exchange",
+  "name": "blockchain-developer-bootcamp",
   "version": "0.1.0",
   "description": "Decentralized Ethereum Token Exchange",
   "author": "cosimo@demedici.me",
@@ -9,7 +9,6 @@
     "npm": "5.6.0"
   },
   "dependencies": {
-    "@openzeppelin/network": "^0.2.9",
     "apexcharts": "3.6.3",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
@@ -24,7 +23,7 @@
     "dotenv": "6.2.0",
     "lodash": "4.17.11",
     "moment": "2.24.0",
-    "openzeppelin-solidity": "2.1.3",
+    "openzeppelin-solidity": "2.3.0",
     "react": "16.8.4",
     "react-apexcharts": "1.3.0",
     "react-bootstrap": "1.0.0-beta.5",
@@ -57,10 +56,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.2.3",
-    "@openzeppelin/gsn-helpers": "^0.2.0",
-    "@openzeppelin/upgrades": "^2.5.3"
-  }
+  ]
 }
