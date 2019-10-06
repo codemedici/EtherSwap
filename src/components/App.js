@@ -17,17 +17,23 @@ class App extends Component {
   }
 
   async loadBlockchainData(dispatch) {
-    const web3 = loadWeb3(dispatch)
-    console.log(web3)
+
+  	const web3 = loadWeb3(dispatch)
     await web3.eth.net.getNetworkType()
     const networkId = await web3.eth.net.getId()
+    // account
     const account = await loadAccount(web3, dispatch)
-    console.log(account)
+    if(!account) {
+    	window.alert('Non-Ethereum browser detected. You should consider trying MetaMask extension!')
+      	return
+     }
+    // token
     const token = await loadToken(web3, networkId, dispatch)
     if(!token) {
       window.alert('Token smart contract not detected on the current network. Please select another network with Metamask.')
       return
     }
+    // exchange
     const exchange = await loadExchange(web3, networkId, dispatch)
     if(!exchange) {
       window.alert('Exchange smart contract not detected on the current network. Please select another network with Metamask.')

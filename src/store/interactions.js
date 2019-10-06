@@ -25,11 +25,32 @@ import Token from '../abis/Token.json'
 import Exchange from '../abis/Exchange.json'
 import { ETHER_ADDRESS } from '../helpers'
 
+async function askPermission() {
+  // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
+  await window.ethereum.enable()
+  // Acccounts now exposed
+  // web3.eth.getAccounts(console.log);
+}
+
 export const loadWeb3 = (dispatch) => {
   const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545')
+  if (window.ethereum) {
+        try {
+            // Request account access if needed
+            askPermission()
+        } catch (error) {
+            console.log(error)
+            // User denied account access...
+        }
+    }
+    // Non-dapp browsers...
+    else {
+        window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+  }
   dispatch(web3Loaded(web3))
   return web3
 }
+
 
 export const loadAccount = async (web3, dispatch) => {
   // TODO add warning message if no accounts found
