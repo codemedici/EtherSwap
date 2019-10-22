@@ -106,5 +106,10 @@ contract SimpleCrowdsale {
         // if( !investor.transfer(investment) ) revert();
         investor.transfer(investment);
     }
+
+    function killContract(address _recipient) public {
+    	require (msg.sender == owner);
+    	selfdestruct(_recipient);
+    }
 }
 

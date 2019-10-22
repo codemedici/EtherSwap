@@ -15,13 +15,11 @@ contract CrowdsaleToken is Token {
         _;
     }
 
-    function pause() onlyOwner 
-        whenNotPaused public {
+    function pause() onlyOwner whenNotPaused public {
         paused = true;
     }
 
-    function unpause() 
-        onlyOwner whenPaused public {
+    function unpause() onlyOwner whenPaused public {
         paused = false;
     }
 
@@ -39,11 +37,11 @@ contract CrowdsaleToken is Token {
         released = true;
     }
 
-    function transfer(address _to, uint256 _amount) isReleased public returns (bool) {
+    function transfer(address _to, uint256 _amount) isReleased whenNotPaused public returns (bool) {
         super.transfer(_to, _amount);
     }
 
-    function transferFrom(address _from, address _to, uint256 _amount) isReleased public returns (bool) {
+    function transferFrom(address _from, address _to, uint256 _amount) isReleased whenNotPaused public returns (bool) {
         super.transferFrom(_from, _to, _amount);
     }
 
