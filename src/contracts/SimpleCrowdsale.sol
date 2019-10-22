@@ -60,7 +60,12 @@ contract SimpleCrowdsale {
         bool nonZeroInvestment = _investment != 0; // False if 0
         bool withinCrowdsalePeriod = now >= startTime && now <= endTime;  // False if outside crowdsale period
         
-        return nonZeroInvestment && withinCrowdsalePeriod; // return true if checks passed
+        return nonZeroInvestment && withinCrowdsalePeriod && isFullInvestmentWithinLimit(_investment); // return true if checks passed
+    }
+
+    function isFullInvestmentWithinLimit(uint256 _investment) internal view returns (bool) {
+    	// the default implementation doesn't perform any check at all; overridden implementations in inherited classes will do
+    	return true;
     }
     
     function assignTokens(address _beneficiary, uint256 _investment) internal {
@@ -107,7 +112,7 @@ contract SimpleCrowdsale {
         investor.transfer(investment);
     }
 
-    function killContract(address _recipient) public {
+    function killContract(address payable _recipient) public {
     	require (msg.sender == owner);
     	selfdestruct(_recipient);
     }
