@@ -3,11 +3,32 @@ import "./Token.sol";
 contract CrowdsaleToken is Token {
     bool public released = false;
 
+    bool public paused = false;
+
+    modifier whenNotPaused() {
+        require(!paused);
+        _;
+    }
+
+    modifier whenPaused() {
+        require(paused);
+        _;
+    }
+
+    function pause() onlyOwner 
+        whenNotPaused public {
+        paused = true;
+    }
+
+    function unpause() 
+        onlyOwner whenPaused public {
+        paused = false;
+    }
+
     modifier isReleased() {
         if(!released) {
             revert();
         }
- 
         _;
     }
 
