@@ -9,17 +9,26 @@ contract Token { //is Context, IERC20{
 	string public symbol = 'DAPP'; // optional
 	uint256 public decimals = 18; // optional
 	uint256 public totalSupply;
+	address public owner;
 
 	mapping(address => uint256) public balanceOf;
 	mapping(address => mapping(address => uint256)) public allowance;
+	mapping(address => bool) public frozenAccount;
 
 	event Transfer(address indexed from, address indexed to, uint256 value);
 	event Approval(address indexed owner, address indexed spender, uint256 value);
+	event FrozenAccount(address target, bool frozen);
 
 	constructor() public {
+		owner = msg.sender;
 		totalSupply = 1000000 * (10 ** decimals);
-		balanceOf[msg.sender] = totalSupply;
+		mint(owner, totalSupply);
 		emit Transfer(address(0), msg.sender, totalSupply);
+	}
+
+	modifier onlyOwner() {
+		require (msg.sender == owner);
+		_;
 	}
 
 
@@ -56,5 +65,20 @@ contract Token { //is Context, IERC20{
 		_transfer(_from, _to, _value);
 		return true;
 	}
+
+	function mint(address _recipient, uint256  _mintedAmount) onlyOwner public {
+	            
+	    balanceOf[_recipient] += _mintedAmount; 
+	    emit Transfer(owner, _recipient, _mintedAmount); 
+	}
+	    
+	function freezeAccount(address _target, bool _freeze) onlyOwner public {
+		require(msg.sender == owner);
+
+	    frozenAccount[_target] = _freeze;  
+		emit FrozenAccount(_target, _freeze);
+	}
+
+	
 
 }
