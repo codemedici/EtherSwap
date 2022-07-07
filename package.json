@@ -24,7 +24,7 @@
     "dotenv": "6.2.0",
     "js-scrypt": "^0.2.0",
     "lodash": "4.17.11",
-    "moment": "2.24.0",
+    "moment": "2.29.4",
     "node-gyp": "^3.6.2",
     "openzeppelin-solidity": "2.3.0",
     "react": "16.8.4",
